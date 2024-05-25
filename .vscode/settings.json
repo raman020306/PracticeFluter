@@ -1,4 +1,5 @@
 {
     "cmake.sourceDirectory": "D:/flutter_application_1/linux",
-    "C_Cpp.errorSquiggles": "disabled"
+    "C_Cpp.errorSquiggles": "disabled",
+    "java.configuration.updateBuildConfiguration": "interactive"
 }
