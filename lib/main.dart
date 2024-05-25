@@ -3,8 +3,6 @@ import 'package:flutter_application_1/Pages/Login_page.dart';
 import 'package:flutter_application_1/utills/routes.dart';
 import 'package:flutter_application_1/utills/widgets/themes.dart';
 
-
-import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_application_1/Pages/home_page.dart';
 
 
