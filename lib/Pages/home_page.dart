@@ -5,8 +5,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_application_1/models/catalogApp.dart';
 import 'package:flutter_application_1/utills/widgets/drawer.dart';
 
-import '../utills/widgets/item_widget.dart';
-
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
@@ -44,16 +42,47 @@ class _HomePageState extends State<HomePage> {
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: (CatalogApp.items != null && CatalogApp.items.isNotEmpty)
-            ? ListView.builder(
+            ? GridView.builder(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  mainAxisSpacing: 16,
+                  crossAxisSpacing: 16,
+                ),
+                itemBuilder: ((context, index) {
+                  final item = CatalogApp.items[index];
+                  return Card(
+                      clipBehavior: Clip.antiAlias,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10)),
+                      child: GridTile(
+                        header: Container(
+                          child: Text(
+                            item.name,
+                            style: TextStyle(color: Colors.white),
+                          ),
+                          padding: const EdgeInsets.all(12),
+                          decoration: BoxDecoration(
+                            color: Colors.green,
+                          ),
+                        ),
+                        child: Image.network(item.image),
+                        footer: Container(
+                          child: Text(
+                            item.price.toString(),
+                            style: TextStyle(color: Colors.white),
+                          ),
+                          padding: const EdgeInsets.all(12),
+                          decoration: BoxDecoration(
+                            color: Colors.black,
+                          ),
+                        ),
+                      ));
+                }),
                 itemCount: CatalogApp.items.length,
-                itemBuilder: (context, index) =>itemWidget(
-                    item: CatalogApp.items[index],
-                  ),
-      
               )
             : Center(
-              child: CircularProgressIndicator(),
-            ),
+                child: CircularProgressIndicator(),
+              ),
       ),
       drawer: Mydrawer(),
     );
