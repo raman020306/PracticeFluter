@@ -69,6 +69,7 @@ class HomeDetailPage extends StatelessWidget {
               ),
             ))
           ],
+        
         ),
       ),
     );
